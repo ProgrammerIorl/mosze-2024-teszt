@@ -20,7 +20,7 @@ int main()
 
     std::cout << "Atlag szamitasa: " << std::endl;
 
-    int atlag;  // Ahhoz hogy átlagot számoljunk elõször az atlagnak 0 értéket kell adni és float jobb lenne
+    int atlag;  // Ahhoz hogy átlagot számoljunk eloször az atlagnak 0 értéket kell adni és float jobb lenne
     for (int i = 0; i < N_ELEMENTS, i++)  // Vesszõ helyett pontosvesszõt kell használni.
     {
         atlag += b[i] // Nincs pontosvesszõ
