@@ -4,30 +4,31 @@ constexpr int N_ELEMENTS = 100;
 
 int main()
 {
-    int* b = new int[NELEMENTS];  // 'NELEMENTS' helyett 'N_ELEMENTS' 
+    int* b = new int[N_ELEMENTS];  // 'NELEMENTS' helyett 'N_ELEMENTS' 
 
-    std::cout << '1-100 ertekek duplazasa'  // Nincs pontosvesszõ
+    std::cout << "1-100 ertekek duplazasa" << std::endl;  // Nincs pontosvesszõ
 
-        for (int i = 0;)  // Hiányzik a ciklusfeltétel és az iteráció változtatása
-        {
-            b[i] = i * 2;  
-        }
-
-    for (int i = 0; i; i++)  // Rossz feltétel; 'i < N_ELEMENTS' kellene, hogy minden elemre fusson.
+    for (int i = 0; i < N_ELEMENTS; i++)  // Hiányzik a ciklusfeltétel és az iteráció változtatása
     {
-        std::cout << "Ertek:"  // Csak annyit ír ki hogy Ertek:
+        b[i] = i * 2;
+    }
+
+    for (int i = 0; i < N_ELEMENTS; i++)  // Rossz feltétel; 'i < N_ELEMENTS' kellene, hogy minden elemre fusson.
+    {
+        std::cout << "Ertek: " << b[i] << std::endl;  // Csak annyit ír ki hogy Ertek:
     }
 
     std::cout << "Atlag szamitasa: " << std::endl;
 
-    int atlag;  // Ahhoz hogy átlagot számoljunk eloször az atlagnak 0 értéket kell adni és float jobb lenne
-    for (int i = 0; i < N_ELEMENTS, i++)  // Vesszõ helyett pontosvesszõt kell használni.
+    float atlag = 0;  // Ahhoz hogy átlagot számoljunk eloször az atlagnak 0 értéket kell adni és float jobb lenne
+    for (int i = 0; i < N_ELEMENTS; i++)  // Vesszõ helyett pontosvesszõt kell használni.
     {
-        atlag += b[i] // Nincs pontosvesszõ
+        atlag += b[i];  // Nincs pontosvesszõ
     }
-    atlag /= N_ELEMENTS;  
+    atlag /= N_ELEMENTS;
 
     std::cout << "Atlag: " << atlag << std::endl;
     // A dinamikusan lefoglalt memóriát törölni kell 
-    return 0; 
+    delete[] b;  // Memória felszabadítás
+    return 0;
 }
